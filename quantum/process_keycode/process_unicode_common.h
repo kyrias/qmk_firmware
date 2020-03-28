@@ -52,6 +52,7 @@
 enum unicode_input_modes {
     UC_OSX,    // Mac OS X using Unicode Hex Input
     UC_LNX,    // Linux using IBus
+    UC_LNXF,   // Linux using Fcitx
     UC_WIN,    // Windows using EnableHexNumpad
     UC_BSD,    // BSD (not implemented)
     UC_WINC,   // Windows using WinCompose (https://github.com/samhocevar/wincompose)

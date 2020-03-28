@@ -84,6 +84,9 @@ __attribute__((weak)) void unicode_input_start(void) {
         case UC_LNX:
             tap_code16(UNICODE_KEY_LNX);
             break;
+        case UC_LNXF:
+            tap_code16(LCTL(LALT(LSFT(KC_U))));
+            break;
         case UC_WIN:
             register_code(KC_LALT);
             tap_code(KC_PPLS);
@@ -105,6 +108,9 @@ __attribute__((weak)) void unicode_input_finish(void) {
         case UC_LNX:
             tap_code(KC_SPC);
             break;
+        case UC_LNXF:
+            tap_code(KC_ENTER);
+            break;
         case UC_WIN:
             unregister_code(KC_LALT);
             break;
@@ -122,6 +128,7 @@ __attribute__((weak)) void unicode_input_cancel(void) {
             unregister_code(UNICODE_KEY_OSX);
             break;
         case UC_LNX:
+        case UC_LNXF:
         case UC_WINC:
             tap_code(KC_ESC);
             break;
@@ -144,6 +151,11 @@ __attribute__((weak)) uint16_t hex_to_keycode(uint8_t hex) {
 }
 
 void register_hex(uint16_t hex) {
+    switch (unicode_config.input_mode) {
+        case UC_LNXF:
+            send_string("U+");
+            break;
+    }
     for (int i = 3; i >= 0; i--) {
         uint8_t digit = ((hex >> (i * 4)) & 0xF);
         tap_code(hex_to_keycode(digit));
@@ -151,6 +163,11 @@ void register_hex(uint16_t hex) {
 }
 
 void register_hex32(uint32_t hex) {
+    switch (unicode_config.input_mode) {
+        case UC_LNXF:
+            send_string("U+");
+            break;
+    }
     bool onzerostart = true;
     for (int i = 7; i >= 0; i--) {
         if (i <= 3) {
@@ -265,6 +282,13 @@ bool process_unicode_common(uint16_t keycode, keyrecord_t *record) {
 #if defined(AUDIO_ENABLE) && defined(UNICODE_SONG_LNX)
                 static float song_lnx[][2] = UNICODE_SONG_LNX;
                 PLAY_SONG(song_lnx);
+#endif
+                break;
+            case UNICODE_MODE_LNXF:
+                set_unicode_input_mode(UC_LNXF);
+#if defined(AUDIO_ENABLE) && defined(UNICODE_SONG_LNXF)
+                static float song_lnxf[][2] = UNICODE_SONG_LNXF;
+                PLAY_SONG(song_lnxf);
 #endif
                 break;
             case UNICODE_MODE_WIN:

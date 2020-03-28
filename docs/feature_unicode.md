@@ -125,7 +125,8 @@ You can switch the input mode at any time by using one of the following keycodes
 |`UNICODE_MODE_FORWARD`|`UC_MOD` |Next in list|[Cycle](#input-mode-cycling) through selected modes           |
 |`UNICODE_MODE_REVERSE`|`UC_RMOD`|Prev in list|[Cycle](#input-mode-cycling) through selected modes in reverse|
 |`UNICODE_MODE_OSX`    |`UC_M_OS`|`UC_OSX`    |Switch to macOS input                                         |
-|`UNICODE_MODE_LNX`    |`UC_M_LN`|`UC_LNX`    |Switch to Linux input                                         |
+|`UNICODE_MODE_LNX`    |`UC_M_LN`|`UC_LNX`    |Switch to Linux IBus input                                    |
+|`UNICODE_MODE_LNXF`   |`UC_M_LF`|`UC_LNXF`   |Switch to Linux Fcitx input                                   |
 |`UNICODE_MODE_WIN`    |`UC_M_WI`|`UC_WIN`    |Switch to Windows input                                       |
 |`UNICODE_MODE_BSD`    |`UC_M_BS`|`UC_BSD`    |Switch to BSD input (not implemented)                         |
 |`UNICODE_MODE_WINC`   |`UC_M_WC`|`UC_WINC`   |Switch to Windows input using WinCompose                      |
@@ -147,6 +148,7 @@ For instance, you can add these definitions to your `config.h` file:
 ```c
 #define UNICODE_SONG_OSX  COIN_SOUND
 #define UNICODE_SONG_LNX  UNICODE_LINUX
+#define UNICODE_SONG_LNXF UNICODE_LINUX
 #define UNICODE_SONG_BSD  MARIO_GAMEOVER
 #define UNICODE_SONG_WIN  UNICODE_WINDOWS
 #define UNICODE_SONG_WINC UNICODE_WINDOWS
