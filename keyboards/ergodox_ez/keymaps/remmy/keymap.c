@@ -43,9 +43,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ,KC_RGUI       ,KC_B  ,KC_M   ,KC_W     ,RALT_T(KC_V)  ,RCTL_T(KC_Z)     ,KC_RSHIFT
                               ,KC_UP  ,KC_DOWN  ,KC_ESCAPE     ,KC_F24           ,MO(SYMBOLS)
 
-        ,OSL(FN)    ,XXXXXXX
+        ,OSL(FN)    ,KC_APPLICATION
         ,KC_PGUP
-        ,KC_PGDOWN  ,KC_TAB   ,KC_ENTER
+        ,KC_PGDOWN  ,KC_TAB          ,KC_ENTER
     ),
 
     [QWERTY] = LAYOUT_ergodox(
