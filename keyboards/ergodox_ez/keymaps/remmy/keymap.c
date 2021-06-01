@@ -41,9 +41,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ,OSL(SYMBOLS)  ,KC_F  ,KC_G   ,KC_C     ,KC_R          ,KC_L             ,KC_BSLASH
                        ,KC_D  ,KC_H   ,KC_T     ,KC_N          ,LT(MOUSE, KC_S)  ,XXXXXXX
         ,KC_RGUI       ,KC_B  ,KC_M   ,KC_W     ,RALT_T(KC_V)  ,RCTL_T(KC_Z)     ,KC_RSHIFT
-                              ,KC_UP  ,KC_DOWN  ,KC_ESCAPE     ,KC_F24           ,MO(SYMBOLS)
+                              ,KC_UP  ,KC_DOWN  ,KC_ESCAPE     ,KC_APPLICATION   ,MO(SYMBOLS)
 
-        ,OSL(FN)    ,KC_APPLICATION
+        ,OSL(FN)    ,KC_24
         ,KC_PGUP
         ,KC_PGDOWN  ,KC_TAB          ,KC_ENTER
     ),
